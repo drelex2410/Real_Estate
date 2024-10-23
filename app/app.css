@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.action-bar {
+  background-color: #2563eb;
+  color: white;
+}
+
+.property-card {
+  background-color: white;
+  border-radius: 8;
+  margin: 8;
+  elevation: 2;
+}
+
+.progress-bar {
+  height: 4;
+  background-color: #e5e7eb;
+  border-radius: 2;
+}
+
+.progress-fill {
+  background-color: #2563eb;
+  border-radius: 2;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+  padding: 12;
+  border-radius: 6;
+  font-weight: bold;
+}
+
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #6b7280;
+}

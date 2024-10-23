@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Real Estate Investments" class="action-bar">
+        <ActionItem ios.position="right" android.position="actionBar">
+            <Label text="&#xf007;" class="fas text-lg" tap="{{ onProfileTap }}" />
+        </ActionItem>
+    </ActionBar>
+
+    <GridLayout rows="auto, *">
+        <SearchBar row="0" hint="Search properties..." text="{{ searchQuery }}" 
+                  submit="{{ onSearch }}" clear="{{ onClear }}" 
+                  class="bg-gray-100 m-2" />
+
+        <ListView row="1" items="{{ properties }}" class="list-group">
+            <ListView.itemTemplate>
+                <GridLayout rows="auto, auto" columns="*" class="property-card p-3">
+                    <Image row="0" src="{{ images[0] }}" height="200" stretch="aspectFill" class="rounded-lg" />
+                    
+                    <StackLayout row="1" class="p-2">
+                        <Label text="{{ title }}" class="text-xl font-bold" />
+                        <Label text="{{ location }}" class="text-secondary" />
+                        
+                        <GridLayout rows="auto" columns="*, auto" class="mt-2">
+                            <Label col="0" text="{{ 'Price: $' + price }}" class="text-lg font-semibold" />
+                            <Label col="1" text="{{ 'Min: $' + minInvestment }}" class="text-primary" />
+                        </GridLayout>
+
+                        <GridLayout rows="auto, auto" columns="*" class="mt-2">
+                            <GridLayout row="0" columns="*, auto">
+                                <Label col="0" text="Investment Progress" class="text-secondary" />
+                                <Label col="1" text="{{ Math.round((currentInvestment / targetInvestment) * 100) + '%' }}" 
+                                       class="text-primary" />
+                            </GridLayout>
+                            
+                            <GridLayout row="1" class="progress-bar mt-1">
+                                <GridLayout class="progress-fill" width="{{ (currentInvestment / targetInvestment) * 100 + '%' }}" />
+                            </GridLayout>
+                        </GridLayout>
+
+                        <Button text="Invest Now" tap="{{ invest }}" class="btn-primary mt-3" />
+                    </StackLayout>
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </GridLayout>
+</Page>
